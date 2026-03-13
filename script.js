@@ -2,8 +2,8 @@
 EDIT THESE
 ========================= */
 
-const NAME = "ENTER_NAME_HERE";
-const EXTRA_MESSAGE = "";
+const NAME = "Sameer";
+const EXTRA_MESSAGE = "Life was way more fun with you around. Thanks for all the laughs, support, and crazy memories we shared. I hope this year brings you success, happiness, and everything you’re dreaming of. Stay awesome and never change.";
 
 
 /* =========================
@@ -235,5 +235,6 @@ window.addEventListener("resize",function(){
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 
 });
