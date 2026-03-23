@@ -1,9 +1,21 @@
 /* =========================
-EDIT THESE
+EDITED VALUES
 ========================= */
 
-const NAME = "ENTER_NAME_HERE";
-const EXTRA_MESSAGE = "";
+const NAME = "Shagun";
+
+const EXTRA_MESSAGE = `🎮 Congratulations!
+
+🎉 LEVEL UP!
+
+Age +1
+Experience +1 Year
+
+It’s been really nice getting to know you, I’m glad we started talking.
+
+There’s honestly so much I’d like to say… but words might fall short here.
+
+Happy Birthday! 🎂`;
 
 
 /* =========================
@@ -19,16 +31,16 @@ const cake = document.getElementById("cake");
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
 
+const curtain = document.getElementById("curtain");
+
 
 /* =========================
 CANVAS SETUP
 ========================= */
 
 function resizeCanvas(){
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-
 }
 
 resizeCanvas();
@@ -54,9 +66,7 @@ i++;
 setTimeout(type, speed);
 
 }else{
-
 if(done) done();
-
 }
 
 }
@@ -67,7 +77,7 @@ type();
 
 
 /* =========================
-FIREWORK SYSTEM (FIXED)
+FIREWORK SYSTEM
 ========================= */
 
 let rockets = [];
@@ -82,12 +92,10 @@ particles = [];
 
 running = true;
 
-/* stop after 12 sec */
 setTimeout(()=>{ running = false; },12000);
 
 launchRocket();
 
-/* start animation loop once */
 if(!animationStarted){
 animationStarted = true;
 requestAnimationFrame(update);
@@ -196,24 +204,32 @@ startBtn.addEventListener("click",function(){
 
 startBtn.style.display="none";
 
+/* SHOW CURTAIN */
+curtain.style.visibility = "visible";
+curtain.style.opacity = "1";
+
+/* OPEN CURTAIN */
+setTimeout(()=>{
+curtain.classList.add("open");
+},100);
+
+/* START FIREWORKS */
 startFireworks();
 
-/* show cake first */
-cake.style.opacity="1";
+/* SHOW CAKE */
+cake.style.opacity = "1";
 
-/* then message */
+/* SHOW MESSAGE AFTER CAKE */
 setTimeout(()=>{
 
-messageBox.style.display="block";
+messageBox.style.display = "block";
 
 const mainMessage = "Happy Birthday To You " + NAME;
 
 slowPrint(mainMessage,messageEl,60,()=>{
 
 if(EXTRA_MESSAGE.trim() !== ""){
-
 slowPrint(EXTRA_MESSAGE,extraEl,40);
-
 }
 
 });
