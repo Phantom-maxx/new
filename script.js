@@ -5,16 +5,16 @@ EDIT THESE
 const NAME = "Shagun";
 const EXTRA_MESSAGE = " 🎮 Congratulations! 🎮
 
-🎉 LEVEL UP! 🎉
+ 🎉 LEVEL UP! 🎉
 
-🆙 Age +1
-⭐ Experience +1 Year
+ 🆙 Age +1
+ ⭐ Experience +1 Year
 
-✨ It’s been really nice getting to know you, I’m glad we started talking.
+ ✨ It’s been really nice getting to know you, I’m glad we started talking.
 
-💬 There’s honestly so much I’d like to say… but words might fall short here.
+ 💬 There’s honestly so much I’d like to say… but words might fall short here.
 
-🎂 Happy Birthday! 🎂 ";
+ 🎂 Happy Birthday! 🎂 ";
 
 
 /* =========================
