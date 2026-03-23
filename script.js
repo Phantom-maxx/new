@@ -2,8 +2,8 @@
 EDIT THESE
 ========================= */
 
-const NAME = "Sameer";
-const EXTRA_MESSAGE = "Life was way more fun with you around. Thanks for all the laughs, support, and crazy memories we shared. I hope this year brings you success, happiness, and everything you’re dreaming of. Stay awesome and never change.";
+const NAME = "ENTER_NAME_HERE";
+const EXTRA_MESSAGE = "";
 
 
 /* =========================
@@ -19,18 +19,29 @@ const cake = document.getElementById("cake");
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
 
+
+/* =========================
+CANVAS SETUP
+========================= */
+
+function resizeCanvas(){
+
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
 
 /* =========================
-SLOW PRINT FUNCTION
+SLOW PRINT
 ========================= */
 
 function slowPrint(text, element, speed, done){
 
 let i = 0;
-
 element.innerHTML = "";
 
 function type(){
@@ -38,13 +49,11 @@ function type(){
 if(i < text.length){
 
 element.innerHTML += text.charAt(i);
-
 i++;
 
-setTimeout(type,speed);
+setTimeout(type, speed);
 
-}
-else{
+}else{
 
 if(done) done();
 
@@ -58,12 +67,13 @@ type();
 
 
 /* =========================
-FIREWORK SYSTEM
+FIREWORK SYSTEM (FIXED)
 ========================= */
 
 let rockets = [];
 let particles = [];
 let running = false;
+let animationStarted = false;
 
 function startFireworks(){
 
@@ -72,13 +82,16 @@ particles = [];
 
 running = true;
 
-setTimeout(function(){
-
-running = false;
-
-},12000);
+/* stop after 12 sec */
+setTimeout(()=>{ running = false; },12000);
 
 launchRocket();
+
+/* start animation loop once */
+if(!animationStarted){
+animationStarted = true;
+requestAnimationFrame(update);
+}
 
 }
 
@@ -89,33 +102,27 @@ if(!running) return;
 rockets.push({
 
 x:Math.random()*canvas.width,
-
 y:canvas.height,
-
-vy:-7,
-
+vy:-8,
 target:Math.random()*canvas.height/2
 
 });
 
-setTimeout(launchRocket,700);
+setTimeout(launchRocket,600);
 
 }
 
 function explode(x,y){
 
-for(let i=0;i<60;i++){
+for(let i=0;i<80;i++){
 
 particles.push({
 
 x:x,
 y:y,
-
 vx:(Math.random()-0.5)*8,
 vy:(Math.random()-0.5)*8,
-
 life:80,
-
 size:2+Math.random()*2
 
 });
@@ -145,7 +152,6 @@ ctx.fill();
 if(r.y <= r.target){
 
 explode(r.x,r.y);
-
 rockets.splice(i,1);
 
 }
@@ -172,9 +178,7 @@ ctx.fill();
 p.size *= 0.96;
 
 if(p.life <= 0){
-
 particles.splice(i,1);
-
 }
 
 }
@@ -183,8 +187,6 @@ requestAnimationFrame(update);
 
 }
 
-update();
-
 
 /* =========================
 START BUTTON
@@ -192,27 +194,21 @@ START BUTTON
 
 startBtn.addEventListener("click",function(){
 
-/* hide button */
-
 startBtn.style.display="none";
-
-/* start fireworks */
 
 startFireworks();
 
 /* show cake first */
-
 cake.style.opacity="1";
 
-/* wait for cake animation */
-
-setTimeout(function(){
+/* then message */
+setTimeout(()=>{
 
 messageBox.style.display="block";
 
 const mainMessage = "Happy Birthday To You " + NAME;
 
-slowPrint(mainMessage,messageEl,60,function(){
+slowPrint(mainMessage,messageEl,60,()=>{
 
 if(EXTRA_MESSAGE.trim() !== ""){
 
@@ -223,18 +219,5 @@ slowPrint(EXTRA_MESSAGE,extraEl,40);
 });
 
 },2000);
-
-});
-
-
-/* =========================
-RESPONSIVE CANVAS
-========================= */
-
-window.addEventListener("resize",function(){
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 
 });
