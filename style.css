@@ -108,6 +108,13 @@ display:none;
 
 }
 
+#extraMessage{
+
+white-space: pre-line;
+text-align:center;
+
+}
+
 /* =========================
 CURTAIN CONTAINER
 ========================= */
