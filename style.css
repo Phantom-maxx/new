@@ -9,8 +9,13 @@ font-family:Arial, Helvetica, sans-serif;
 
 /* RED THEME BACKGROUND */
 
-background:linear-gradient(180deg,#1a0000,#660000,#cc0000);
-
+background:linear-gradient(
+180deg,
+#2a0a14 0%,
+#7a0f2f 40%,
+#C2184A 100%
+);
+  
 color:white;
 
 text-align:center;
@@ -65,7 +70,7 @@ border:none;
 
 border-radius:8px;
 
-background:#ff4081;
+background:#C2184A;
 
 color:white;
 
