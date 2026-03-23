@@ -199,6 +199,14 @@ startBtn.style.display="none";
 /* open curtain */
 const curtain = document.getElementById("curtain");
 curtain.classList.add("open");
+
+/* turn on spotlight after curtain opens */
+
+setTimeout(function(){
+
+document.getElementById("spotlight").style.opacity="1";
+
+},2000);  
   
 startFireworks();
 
