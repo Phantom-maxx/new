@@ -196,6 +196,10 @@ startBtn.addEventListener("click",function(){
 
 startBtn.style.display="none";
 
+/* open curtain */
+const curtain = document.getElementById("curtain");
+curtain.classList.add("open");
+  
 startFireworks();
 
 /* show cake first */
