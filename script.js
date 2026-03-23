@@ -196,24 +196,23 @@ startBtn.addEventListener("click",function(){
 
 startBtn.style.display="none";
 
-/* GET CURTAIN */
 const curtain = document.getElementById("curtain");
 
-/* SHOW CURTAIN FIRST */
-curtain.style.display = "block";
+/* MAKE CURTAIN VISIBLE */
+curtain.style.visibility = "visible";
+curtain.style.opacity = "1";
 
-/* SMALL DELAY THEN OPEN */
+/* THEN OPEN IT */
 setTimeout(function(){
 curtain.classList.add("open");
 },100);
 
-/* start fireworks */
 startFireworks();
 
 /* show cake */
 cake.style.opacity="1";
 
-/* message after cake */
+/* message */
 setTimeout(function(){
 
 messageBox.style.display="block";
