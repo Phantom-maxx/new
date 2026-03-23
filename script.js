@@ -196,36 +196,34 @@ startBtn.addEventListener("click",function(){
 
 startBtn.style.display="none";
 
-/* open curtain */
+/* GET CURTAIN */
 const curtain = document.getElementById("curtain");
-curtain.classList.add("open");
 
-/* turn on spotlight after curtain opens */
+/* SHOW CURTAIN FIRST */
+curtain.style.display = "block";
 
+/* SMALL DELAY THEN OPEN */
 setTimeout(function(){
+curtain.classList.add("open");
+},100);
 
-document.getElementById("spotlight").style.opacity="1";
-
-},2000);  
-  
+/* start fireworks */
 startFireworks();
 
-/* show cake first */
+/* show cake */
 cake.style.opacity="1";
 
-/* then message */
-setTimeout(()=>{
+/* message after cake */
+setTimeout(function(){
 
 messageBox.style.display="block";
 
 const mainMessage = "Happy Birthday To You " + NAME;
 
-slowPrint(mainMessage,messageEl,60,()=>{
+slowPrint(mainMessage,messageEl,60,function(){
 
 if(EXTRA_MESSAGE.trim() !== ""){
-
 slowPrint(EXTRA_MESSAGE,extraEl,40);
-
 }
 
 });
